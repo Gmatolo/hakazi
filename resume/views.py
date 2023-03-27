@@ -12,4 +12,4 @@ def get_user_email(request):
             return redirect('home')
     else:
         form = EmailForm()
-    return render(request, 'email.html', {'form': form})
+    return render(request, 'get_user_emailform.html', {'form': form})
