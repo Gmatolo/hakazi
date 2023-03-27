@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from .forms import EmailForm
 
 
-def get_email(request):
+def get_user_email(request):
     if request.method == 'POST':
         form = EmailForm(request.POST)
         if form.is_valid():
