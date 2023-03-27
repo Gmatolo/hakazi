@@ -28,9 +28,12 @@ def upload_resume(request):
                 resume.save()
                 del request.session['email']
                 messages.success(request, "We'll analyze and send the resume report there.")
-                return redirect('home')
+                return redirect('resume-upload-complete')
         else:
             form = ResumeForm()
         return render(request, 'resume/upload_resume.html', {'form': form})
     else:
         return redirect('home')
+    
+def resume_upload_complete(request):
+    return render(request, 'resume/resume_upload_complete.html')
