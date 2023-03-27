@@ -1,6 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+
+from .forms import EmailForm
 
 
-# Create your views here.
 def get_email(request):
-    pass
+    if request.method == 'POST':
+        form = EmailForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            request.session['email'] = email
+            return redirect('home')
+    else:
+        form = EmailForm()
+    return render(request, 'email.html', {'form': form})
