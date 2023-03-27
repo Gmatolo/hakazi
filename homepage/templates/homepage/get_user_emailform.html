@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<div class="flex justify-center mt-12 ">
+    <div class="w-1/2 border p-4">
+        <h1 class="mb-4">Enter your email address</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="bg-green-400 p-2 rounded-lg mt-4" type="submit">Next</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}

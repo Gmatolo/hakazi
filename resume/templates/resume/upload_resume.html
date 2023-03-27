@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<h1>Upload Your Resume</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
