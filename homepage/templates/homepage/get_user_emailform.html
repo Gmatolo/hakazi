@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Resume Review</title>
-</head>
-
-<body>
-    <h1>Enter your email address</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Next</button>
-    </form>
-</body>
-
-</html>
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+<h1>Enter your email address</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Next</button>
+</form>
+{% endblock content %}
