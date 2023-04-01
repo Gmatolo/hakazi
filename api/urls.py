@@ -7,4 +7,5 @@ router.register('resume', ResumeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    
 ]
