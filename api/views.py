@@ -1,13 +1,17 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
+
 from resume.forms import EmailForm, ResumeForm
-from .models import Resume
+from resume.models import Resume
+
 from .serializers import ResumeSerializer
 
 
-@api_view(['POST'])
+@api_view(['POST']) 
+@permission_classes([AllowAny])
 def get_user_email(request):
     form = EmailForm(request.data)
     if form.is_valid():
@@ -19,6 +23,7 @@ def get_user_email(request):
         
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def upload_resume(request):
     email = request.session.get('email')
     if email:
@@ -36,5 +41,6 @@ def upload_resume(request):
         return Response({'success': False, 'errors': 'Email not found.'})
 
 @api_view(['GET'])
+@permission_classes([AllowAny])
 def resume_upload_complete(request):
     return Response({'message': "Resume uploaded successfully."})

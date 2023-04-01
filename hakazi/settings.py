@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "homepage",
     "resume",
+    "api",
     "rest_framework",
 ]
 

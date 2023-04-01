@@ -1,11 +1,9 @@
-from django.urls import path, include
-from rest_framework import routers
-from .views import ResumeViewSet
+from django.urls import path
 
-router = routers.DefaultRouter()
-router.register('resume', ResumeViewSet)
+from .views import get_user_email, resume_upload_complete, upload_resume
 
 urlpatterns = [
-    path('', include(router.urls)),
-    
+    path('get_user_email/', get_user_email, name='get_user_email'),
+    path('upload_resume/', upload_resume, name='upload_resume'),
+    path('resume_upload_complete/', resume_upload_complete, name='resume_upload_complete'),
 ]
