@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "resume",
     "api",
     "rest_framework",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
