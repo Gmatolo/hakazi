@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+
+class Resume(models.Model):
+    email = models.EmailField()
+    resume = models.FileField(upload_to='static/resumes/%Y/%m/%d')
+
+    def __str__(self):
+        return f'Resume for {self.email}'

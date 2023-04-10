@@ -1,10 +1,20 @@
 {% extends "index.html" %}
 {% load static %}
 {% block content %}
-<h1>Enter your email address</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Next</button>
-</form>
+<div class="max-w-lg mx-auto border p-4 mx-4 mt-12">
+    <p class="mb-4 text-base">Great! Let us know where to send your personalized report</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mb-4">
+            <span> Enter your {{ form.email.label_tag }}</span>
+            <span class="border bg-gray-400"> {{ form.email }} </span>
+        </div>
+        <button type="submit"
+            class="bg-indigo-400 hover:bg-indigo-500 text-black py-2 px-2 rounded-lg mt-4">Next</button>
+    </form>
+</div>
+<p class="max-w-lg mt-12 mx-12 text-base w-1/2 mx-auto">
+    We have helped <span class="text-indigo-500 font-bold"> 1500+ </span> with resume reviews and editing.
+</p>
 {% endblock content %}
