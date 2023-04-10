@@ -33,6 +33,6 @@ def upload_resume(request):
         return render(request, 'resume/upload_resume.html', {'form': form})
     else:
         return redirect('home')
-    
+        
 def resume_upload_complete(request):
     return render(request, 'resume/resume_upload_complete.html')
